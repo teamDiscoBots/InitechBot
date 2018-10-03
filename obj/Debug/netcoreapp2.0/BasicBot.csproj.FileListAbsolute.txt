@@ -1,0 +1,11 @@
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\bin\Debug\netcoreapp2.0\BasicBot.deps.json
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\bin\Debug\netcoreapp2.0\BasicBot.runtimeconfig.json
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\bin\Debug\netcoreapp2.0\BasicBot.runtimeconfig.dev.json
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\bin\Debug\netcoreapp2.0\BasicBot.dll
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\bin\Debug\netcoreapp2.0\BasicBot.pdb
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\obj\Debug\netcoreapp2.0\BasicBot.csprojAssemblyReference.cache
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\obj\Debug\netcoreapp2.0\BasicBot.csproj.CoreCompileInputs.cache
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\obj\Debug\netcoreapp2.0\BasicBot.AssemblyInfoInputs.cache
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\obj\Debug\netcoreapp2.0\BasicBot.AssemblyInfo.cs
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\obj\Debug\netcoreapp2.0\BasicBot.dll
+C:\Users\TeamAcme\source\repos\teamDiscoBots\TeamBot7\InitechBot\obj\Debug\netcoreapp2.0\BasicBot.pdb

@@ -1,0 +1,60 @@
+{
+  "name": "InitechBot",
+  "padlock": "aKliy9PZJZaGjMHuc9KMOQ==!tkDbbi4mB2KSLclYTZ7qGfZglHGff4ofJrtNgxGjSnfmndNSlRCqoOD0H/R41TjB",
+  "version": "2.0",
+  "services": [
+    {
+      "tenantId": "cdf23a4e-f9eb-4e72-a750-0cf2dbd851a6",
+      "subscriptionId": "895b6d3a-951e-49cd-8ede-3b94719556e6",
+      "resourceGroup": "HackathonTeam7",
+      "serviceName": "InitechBot",
+      "type": "abs",
+      "name": "InitechBot",
+      "id": "1"
+    },
+    {
+      "connectionString": "LiGn6QzRnwP2byv1OWCbVg==!hYs4+pLBUDQb5375/GoG+QeYtE+X93yosHC0uESogx4kSn5d+DAZtX+wFCWQAu5KZLLQP9g+hRDOWh7VbsmFsTKCZIJjYVE0rT2b4SwmDSuo/m2InPynQorcibvY0+gw7x35dW2hFZI/9vxFjDDNOCEWIVdDphgC4VmNboJNEjfGeLOQjYItvcQCkKzUD6X7Mb+DiCojlOfWpjkSHH5iYA==",
+      "tenantId": "cdf23a4e-f9eb-4e72-a750-0cf2dbd851a6",
+      "subscriptionId": "895b6d3a-951e-49cd-8ede-3b94719556e6",
+      "resourceGroup": "HackathonTeam7",
+      "serviceName": "initechbotbee7",
+      "type": "blob",
+      "id": "2"
+    },
+    {
+      "appId": "",
+      "appPassword": "",
+      "endpoint": "http://localhost:3978/api/messages",
+      "type": "endpoint",
+      "name": "development",
+      "id": "3"
+    },
+    {
+      "appId": "9880e60b-69fb-4735-828e-334b226501f5",
+      "appPassword": "5SJSuB5Ty6w3RPpiDr2/sw==!LCMtE7lkt30fIUO8B0KXDtMK0alWY99cWGDyr0pqtZQ=",
+      "endpoint": "https://initechbot.azurewebsites.net/api/messages",
+      "type": "endpoint",
+      "name": "production",
+      "id": "4"
+    },
+    {
+      "instrumentationKey": "zidsbFtZdXI5W7R65JTlXA==!UD5A94EnWDogEikLZsTB0elyTXU/b/Wbl4MOn50d/irSX0Ts0A16hWzHdgs2NFyD",
+      "applicationId": "71c3dd40-94d5-4fc4-9bad-6b38adcedf4e",
+      "apiKeys": {},
+      "tenantId": "cdf23a4e-f9eb-4e72-a750-0cf2dbd851a6",
+      "subscriptionId": "895b6d3a-951e-49cd-8ede-3b94719556e6",
+      "resourceGroup": "HackathonTeam7",
+      "serviceName": "InitechBot4ar7ii",
+      "type": "appInsights",
+      "id": "5"
+    },
+    {
+      "appId": "4251d2e0-609e-44ef-9133-958ea6995f80",
+      "authoringKey": "P37kxRFbsp8LHXu3N2nQhg==!glv16E6LkicLa9gjPR2d29sgPPq1V+d/hIQYpv7zRSYCgkdwg69erYQjBqNOt8u2",
+      "region": "westus",
+      "type": "luis",
+      "name": "BasicBotLuisApplication",
+      "id": "6"
+    }
+  ]
+}
