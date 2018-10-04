@@ -76,7 +76,21 @@ namespace Microsoft.BotBuilderSamples
                 switch (topIntent)
                 {
                     case GreetingIntent:
-                        await turnContext.SendActivityAsync("Hello.");
+                        await turnContext.SendActivityAsync("Hello Julie.");
+                        // Replay to the activity we received with an activity.
+                        var reply = activity.CreateReply();
+
+                        // Cards are sent as Attackments in the Bot Framework.
+                        // So we need to create a list of attachments on the activity.
+                        reply.Attachments = new List<Attachment>();
+                        //reply.Attachments.Add(CreateAdaptiveCardAttachment());
+                        //reply.Attachments.Add(GetHeroCard().ToAttachment());
+
+                        
+                        var welcomeCard = CreateInitialGreetingCardAttachment();
+                        reply.Attachments.Add(welcomeCard);
+                        
+                        await turnContext.SendActivityAsync(reply, cancellationToken);
                         break;
                     case HelpIntent:
                         await turnContext.SendActivityAsync("Let me try to provide some help.");
@@ -114,6 +128,28 @@ namespace Microsoft.BotBuilderSamples
 
         }
 
+
+        /// <summary>
+        /// Creates a <see cref="HeroCard"/>.
+        /// </summary>
+        /// <returns>A <see cref="HeroCard"/> the user can view and/or interact with.</returns>
+        /// <remarks>Related types <see cref="CardImage"/>, <see cref="CardAction"/>,
+        /// and <see cref="ActionTypes"/>.</remarks>
+        private static HeroCard GetHeroCard()
+        {
+            var heroCard = new HeroCard
+            {
+                Title = "BotFramework Hero Card",
+                Subtitle = "Microsoft Bot Framework",
+                Text = "Build and connect intelligent bots to interact with your users naturally wherever they are," +
+                       " from text/sms to Skype, Slack, Office 365 mail and other popular services.",
+                Images = new List<CardImage> { new CardImage("https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg") },
+                Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Get Started", value: "https://docs.microsoft.com/bot-framework") },
+            };
+
+            return heroCard;
+        }
+
         // Create an attachment message response.
         private Activity CreateResponse(Activity activity, Attachment attachment)
         {
@@ -126,6 +162,17 @@ namespace Microsoft.BotBuilderSamples
         private Attachment CreateAdaptiveCardAttachment()
         {
             var adaptiveCard = File.ReadAllText(@".\Resources\welcomeCard.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+
+        // Load attachment from file.
+        private Attachment CreateInitialGreetingCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\InitialGreeting.json");
             return new Attachment()
             {
                 ContentType = "application/vnd.microsoft.card.adaptive",
