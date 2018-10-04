@@ -27,7 +27,11 @@ namespace Microsoft.BotBuilderSamples
         public const string CancelIntent = "Cancel";
         public const string HelpIntent = "Help";
         public const string NoneIntent = "None";
-
+        public const string ThatsALotIntent = "ThatsAlot";
+        public const string WhatIMissedIntent = "WhatIMissed";
+        public const string WhatNextIntent = "WhatNext";
+        public const string MeetingsIntent = "Meetings";
+        public const string ServiceNowIntent = "ServiceNow";
         /// <summary>
         /// Key in the bot config (.bot file) for the LUIS instance.
         /// In the .bot file, multiple instances of LUIS can be configured.
@@ -65,49 +69,83 @@ namespace Microsoft.BotBuilderSamples
 
             if (activity.Type == ActivityTypes.Message)
             {
-                // Perform a call to LUIS to retrieve results for the current activity message.
-                var luisResults = await _services.LuisServices[LuisConfiguration].RecognizeAsync(turnContext, cancellationToken).ConfigureAwait(false);
-
-                // If any entities were updated, treat as interruption.
-                // For example, "no my name is tony" will manifest as an update of the name to be "tony".
-                var topScoringIntent = luisResults?.GetTopScoringIntent();
-
-                var topIntent = topScoringIntent.Value.intent;
-                switch (topIntent)
+                if(activity.Text == "")
                 {
-                    case GreetingIntent:
-                        await turnContext.SendActivityAsync("Hello Julie.");
-                        // Replay to the activity we received with an activity.
-                        var reply = activity.CreateReply();
+                    await turnContext.SendActivityAsync("Got blank txt");
+                    // Replay to the activity we received with an activity.
+                    var reply = activity.CreateReply();
 
-                        // Cards are sent as Attackments in the Bot Framework.
-                        // So we need to create a list of attachments on the activity.
-                        reply.Attachments = new List<Attachment>();
-                        //reply.Attachments.Add(CreateAdaptiveCardAttachment());
-                        //reply.Attachments.Add(GetHeroCard().ToAttachment());
+                    // Cards are sent as Attackments in the Bot Framework.
+                    // So we need to create a list of attachments on the activity.
+                    reply.Attachments = new List<Attachment>();
+                    //reply.Attachments.Add(CreateAdaptiveCardAttachment());
+                    //reply.Attachments.Add(GetHeroCard().ToAttachment());
 
-                        
-                        var welcomeCard = CreateInitialGreetingCardAttachment();
-                        var serviceNowCard = CreateServiceNowCardAttachment();
-                        reply.Attachments.Add(welcomeCard);
-                        reply.Attachments.Add(serviceNowCard);
 
-                        await turnContext.SendActivityAsync(reply, cancellationToken);
-                        break;
-                    case HelpIntent:
-                        await turnContext.SendActivityAsync("Let me try to provide some help.");
-                        await turnContext.SendActivityAsync("I understand greetings, being asked for help, or being asked to cancel what I am doing.");
-                        break;
-                    case CancelIntent:
-                        await turnContext.SendActivityAsync("I have nothing to cancel.");
-                        break;
-                    case NoneIntent:
-                    default:
-                        // Help or no intent identified, either way, let's provide some help.
-                        // to the user
-                        await turnContext.SendActivityAsync("I didn't understand what you just said to me.");
-                        break;
+                    //var welcomeCard = CreateInitialGreetingCardAttachment();
+                    //var serviceNowCard = CreateServiceNowCardAttachment();
+                    //reply.Attachments.Add(welcomeCard);
+                    //reply.Attachments.Add(serviceNowCard);
+
+                    await turnContext.SendActivityAsync(reply, cancellationToken);
                 }
+                else
+                {
+                    // Perform a call to LUIS to retrieve results for the current activity message.
+                    var luisResults = await _services.LuisServices[LuisConfiguration].RecognizeAsync(turnContext, cancellationToken).ConfigureAwait(false);
+
+                    // If any entities were updated, treat as interruption.
+                    // For example, "no my name is tony" will manifest as an update of the name to be "tony".
+                    var topScoringIntent = luisResults?.GetTopScoringIntent();
+
+                    var topIntent = topScoringIntent.Value.intent;
+                    var reply = activity.CreateReply();
+                    switch (topIntent)
+                    {
+                        case GreetingIntent:
+                            await turnContext.SendActivityAsync("Hello!");
+                            // Replay to the activity we received with an activity.
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            //reply.Attachments.Add(CreateAdaptiveCardAttachment());
+                            //reply.Attachments.Add(GetHeroCard().ToAttachment());
+
+                            var welcomeCard = CreateInitialGreetingCardAttachment();
+                            reply.Attachments.Add(welcomeCard);
+                  
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case HelpIntent:
+                            await turnContext.SendActivityAsync("Let me try to provide some help.");
+                            await turnContext.SendActivityAsync("I understand greetings, being asked for help, or being asked to cancel what I am doing.");
+                            break;
+                        case ServiceNowIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            var serviceNowCard = CreateServiceNowCardAttachment();
+                            reply.Attachments.Add(serviceNowCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case ThatsALotIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            var thatsALotCard = CreateThatsLotCardAttachment();
+                            reply.Attachments.Add(thatsALotCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case CancelIntent:
+                            await turnContext.SendActivityAsync("I have nothing to cancel.");
+                            break;
+                        case NoneIntent:
+                        default:
+                            // Help or no intent identified, either way, let's provide some help.
+                            // to the user
+                            await turnContext.SendActivityAsync("I didn't understand what you just said to me.");
+                            break;
+                    }
+
+                }
+
             }
             else if (activity.Type == ActivityTypes.ConversationUpdate)
             {
@@ -120,9 +158,9 @@ namespace Microsoft.BotBuilderSamples
                         // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards for more details.
                         if (member.Id != activity.Recipient.Id)
                         {
-                            var welcomeCard = CreateAdaptiveCardAttachment();
-                            var response = CreateResponse(activity, welcomeCard);
-                            await turnContext.SendActivityAsync(response).ConfigureAwait(false);
+                            //var welcomeCard = CreateAdaptiveCardAttachment();
+                            //var response = CreateResponse(activity, welcomeCard);
+                            //await turnContext.SendActivityAsync(response).ConfigureAwait(false);
                         }
                     }
                 }
@@ -192,5 +230,17 @@ namespace Microsoft.BotBuilderSamples
                 Content = JsonConvert.DeserializeObject(adaptiveCard),
             };
         }
+
+        // Load attachment from file.
+        private Attachment CreateThatsLotCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\encouragementCard.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+        
     }
 }
