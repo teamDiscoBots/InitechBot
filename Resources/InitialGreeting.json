@@ -1,101 +1,73 @@
 {
-	"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-	"type": "AdaptiveCard",
-	"version": "1.0",
-	"body": [
-		{
-			"type": "Container",
-			"items": [
-				{
-					"type": "TextBlock",
-					"text": "Hi! Im the B2W bot!",
-					"weight": "bolder",
-					"size": "medium"
-				},
-				{
-					"type": "ColumnSet",
-					"columns": [
-						{
-							"type": "Column",
-							"width": "auto",
-							"items": [
-								{
-									"type": "Image",
-									"url": "https://2.bp.blogspot.com/-6InUGfqmxYc/Us920tlTyeI/AAAAAAAAAiU/l8nShMiBBZA/s1600/Robot1.png",
-									"size": "small",
-									"style": "person"
-								}
-							]
-						},
-						{
-							"type": "Column",
-							"width": "stretch",
-							"items": [
-								{
-									"type": "TextBlock",
-									"text": "Back2Work bot",
-									"weight": "bolder",
-									"wrap": true
-								},
-								{
-									"type": "TextBlock",
-									"spacing": "none",
-									"text": "Created {{DATE(2017-02-14T06:08:39Z, SHORT)}}",
-									"isSubtle": true,
-									"wrap": true
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"type": "Container",
-			"items": [
-				{
-					"type": "TextBlock",
-					"text": "Hi, Im the Back2Work bot. Im here to help you catch up on anything you may have missed while you have been away. What would you like to do first?",
-					"wrap": true
-				},
-				{
-					"type": "FactSet",
-					"facts": [
-						{
-							"title": "",
-							"value": ""
-						}
-					]
-				}
-			]
-		}
-	],
-	"actions": [
-		{
-			"type": "Action.SowCard",
-			"title": "",
-			"card": {
-				"type": "AdaptiveCard",
-				"body": [
-					{
-						"type": "Input.Date",
-						"id": "dueDate"
-					}
-				],
-				"actions": [
-					{
-						"type": "Action.Submit",
-						"title": "OK"
-					}
-				]
-			}
-		},
-		{	
-			"card": {
-				"type": "AdaptiveCard",
-				"actions": [
-				]
-			}
-		}
-	]
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Hi! I\'m the B2W bot!",
+          "weight": "bolder",
+          "size": "medium"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://2.bp.blogspot.com/-6InUGfqmxYc/Us920tlTyeI/AAAAAAAAAiU/l8nShMiBBZA/s1600/Robot1.png",
+                  "size": "small",
+                  "style": "person"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "Back2Work bot",
+                  "weight": "bolder",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "none",
+                  "text": "Created {{DATE(2017-02-14T06:08:39Z, SHORT)}}",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Hi, Im the Back2Work bot. Im here to help you catch up on anything you may have missed while you have been away. What would you like to do first?",
+          "wrap": true
+        },
+        {
+          "type": "FactSet",
+          "facts": [
+            {
+              "title": "",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
