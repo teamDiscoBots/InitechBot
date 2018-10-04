@@ -88,8 +88,10 @@ namespace Microsoft.BotBuilderSamples
 
                         
                         var welcomeCard = CreateInitialGreetingCardAttachment();
+                        var serviceNowCard = CreateServiceNowCardAttachment();
                         reply.Attachments.Add(welcomeCard);
-                        
+                        reply.Attachments.Add(serviceNowCard);
+
                         await turnContext.SendActivityAsync(reply, cancellationToken);
                         break;
                     case HelpIntent:
@@ -173,6 +175,17 @@ namespace Microsoft.BotBuilderSamples
         private Attachment CreateInitialGreetingCardAttachment()
         {
             var adaptiveCard = File.ReadAllText(@".\Resources\initialGreeting.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+
+        // Load attachment from file.
+        private Attachment CreateServiceNowCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\serviceNowSummaryCard.json");
             return new Attachment()
             {
                 ContentType = "application/vnd.microsoft.card.adaptive",

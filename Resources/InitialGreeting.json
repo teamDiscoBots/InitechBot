@@ -55,7 +55,7 @@
       "items": [
         {
           "type": "TextBlock",
-          "text": "Hi, Im the Back2Work bot. Im here to help you catch up on anything you may have missed while you have been away. What would you like to do first?",
+          "text": "Hi, I\'m the Back2Work bot. I\'m here to help you catch up on anything you may have missed while you have been away. What would you like to do first?",
           "wrap": true
         },
         {

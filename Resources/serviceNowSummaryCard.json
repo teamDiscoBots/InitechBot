@@ -1,101 +1,110 @@
 {
-	"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-	"type": "AdaptiveCard",
-	"version": "1.0",
-	"body": [
-		{
-			"type": "Container",
-			"items": [
-				{
-					"type": "TextBlock",
-					"text": "Hi! I'm the B2W bot!",
-					"weight": "bolder",
-					"size": "medium"
-				},
-				{
-					"type": "ColumnSet",
-					"columns": [
-						{
-							"type": "Column",
-							"width": "auto",
-							"items": [
-								{
-									"type": "Image",
-									"url": "https://2.bp.blogspot.com/-6InUGfqmxYc/Us920tlTyeI/AAAAAAAAAiU/l8nShMiBBZA/s1600/Robot1.png",
-									"size": "small",
-									"style": "person"
-								}
-							]
-						},
-						{
-							"type": "Column",
-							"width": "stretch",
-							"items": [
-								{
-									"type": "TextBlock",
-									"text": "Back2Work bot",
-									"weight": "bolder",
-									"wrap": true
-								},
-								{
-									"type": "TextBlock",
-									"spacing": "none",
-									"text": "Created {{DATE(2017-02-14T06:08:39Z, SHORT)}}",
-									"isSubtle": true,
-									"wrap": true
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"type": "Container",
-			"items": [
-				{
-					"type": "TextBlock",
-					"text": "Hi, Iím the Back2Work bot. Iím here to help you catch up on anything you may have missed while you have been away. What would you like to do first?",
-					"wrap": true
-				},
-				{
-					"type": "FactSet",
-					"facts": [
-						{
-							"title": "",
-							"value": ""
-						}
-					]
-				}
-			]
-		}
-	],
-	"actions": [
-		{
-			"type": "Action.SowCard",
-			"title": "",
-			"card": {
-				"type": "AdaptiveCard",
-				"body": [
-					{
-						"type": "Input.Date",
-						"id": "dueDate"
-					}
-				],
-				"actions": [
-					{
-						"type": "Action.Submit",
-						"title": "OK"
-					}
-				]
-			}
-		},
-		{	
-			"card": {
-				"type": "AdaptiveCard",
-				"actions": [
-				]
-			}
-		}
-	]
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Let's check-in on your ServiceNow inbox",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+    {
+      "type": "ColumnSet",
+      "separator": true,
+      "columns": [
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Pending Approvals",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "size": "extraLarge",
+              "color": "accent",
+              "text": "5",
+              "spacing": "none",
+              "horizontalAlignment": "left"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "&nbsp;"
+            },
+            {
+              "type": "Image",
+              "url": "https://media2.picsearch.com/is?34NR5JhyKiyfvzfs9GYn_WCoFuRuVXKG2F7BQZIIJUM&height=325",
+              "size": "medium",
+              "spacing": "none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "separator": true,
+      "columns": [
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "My Open Incidents",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "size": "extraLarge",
+              "color": "accent",
+              "text": "7",
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "&nbsp;"
+            },
+            {
+              "type": "Image",
+              "url": "https://media2.picsearch.com/is?E-i8xPtRbMviW1Alx51hoeNRROGvkNfeMacHqFpyVxE&height=233",
+              "size": "medium",
+              "spacing": "none"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Pending Approvals",
+      "data": {
+        "x": "ServiceNowApprovals"
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "My Open Incidents",
+      "data": {
+        "x": "ServiceNowIncidents"
+      }
+    }
+  ]
 }
