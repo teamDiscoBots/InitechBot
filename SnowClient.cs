@@ -78,7 +78,30 @@ Environment.Exit(1);
 namespace Snow
 {
     class SnowQueryTool {
-        
+        public static string getLumbergIncidents() {
+            SnowQueryTool qt = new SnowQueryTool();
+            SnowUser user = qt.findUser("billlumberg");
+
+            StringBuilder sb = new StringBuilder("Number|Desc|Opened At <br>");
+            if (user != null) {
+                List<SnowIncident> incs = qt.findAssignedIncidents(user);
+                if (incs==null || incs.Count<1){
+                    sb.Append("No Incidents Found");
+                } else {
+                    foreach (SnowIncident inc in incs) {
+                        sb.Append(inc.number)
+                        .Append("|")
+                        .Append(inc.short_decsription)
+                        .Append("|")
+                        .Append(inc.opened_at)
+                        .Append("<br>");
+                    }
+                }
+            } else {
+                sb.Append("Error fetching SNow! incidents<br>");
+            }
+            return sb.ToString();
+        }
         public SnowUser findUser(string userName) {
             if (userName ==null) {
                 throw new MissingFieldException("must provide user name");
