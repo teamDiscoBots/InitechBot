@@ -172,7 +172,7 @@ namespace Microsoft.BotBuilderSamples
         // Load attachment from file.
         private Attachment CreateInitialGreetingCardAttachment()
         {
-            var adaptiveCard = File.ReadAllText(@".\Resources\InitialGreeting.json");
+            var adaptiveCard = File.ReadAllText(@".\Resources\initialGreeting.json");
             return new Attachment()
             {
                 ContentType = "application/vnd.microsoft.card.adaptive",

@@ -8,7 +8,7 @@
 			"items": [
 				{
 					"type": "TextBlock",
-					"text": "Hi! Im the B2W bot!",
+					"text": "Hi! I'm the B2W bot!",
 					"weight": "bolder",
 					"size": "medium"
 				},
@@ -55,7 +55,7 @@
 			"items": [
 				{
 					"type": "TextBlock",
-					"text": "Hi, Im the Back2Work bot. Im here to help you catch up on anything you may have missed while you have been away. What would you like to do first?",
+					"text": "Hi, Iím the Back2Work bot. Iím here to help you catch up on anything you may have missed while you have been away. What would you like to do first?",
 					"wrap": true
 				},
 				{
