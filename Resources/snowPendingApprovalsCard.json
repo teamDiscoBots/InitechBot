@@ -1,0 +1,127 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.0",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "separator": true,
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://media2.picsearch.com/is?34NR5JhyKiyfvzfs9GYn_WCoFuRuVXKG2F7BQZIIJUM&height=325",
+                            "size": "small",
+                            "spacing": "none"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": 1,
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Pending ServiceNow Approvals",
+                            "size": "Large",
+                            "weight": "bolder",
+                            "spacing": "none"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "separator": true,
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": 1,
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Submitted",
+                            "weight": "bolder",
+                            "isSubtle": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "color": "accent",
+                            "text": "10/04/18",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "color": "accent",
+                            "text": "10/04/18",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "color": "accent",
+                            "text": "10/03/18",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "color": "accent",
+                            "text": "10/03/18",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "color": "accent",
+                            "text": "10/03/18",
+                            "spacing": "none"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "4",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Short Description",
+                            "weight": "bolder"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "color": "accent",
+                            "text": "New TPS Report Version",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Update Bolton's Access to TPS Report",
+                            "color": "accent",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Install new printer",
+                            "color": "accent",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Upgrade to Initech accounting software",
+                            "color": "accent",
+                            "spacing": "none"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Install Y2K fix for everything",
+                            "color": "accent",
+                            "spacing": "none"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

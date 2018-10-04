@@ -1,0 +1,87 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": 2,
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Let's schedule a catch-up meeting with your boss",
+                            "weight": "bolder",
+                            "wrap": true,
+                            "size": "medium"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "We just need a few more details to set up your meeting.",
+                            "isSubtle": true,
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Your manager's name",
+                            "weight": "bolder",
+                            "wrap": true
+                        },
+                        {
+                            "type": "Input.Text",
+                            "id": "myName",
+                            "placeholder": "First Last"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Date range for meeting",
+                            "weight": "bolder",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "From:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "Input.Date",
+                            "placeholder": "From",
+                            "id": "DateVal",
+                            "value": "2018-10-20"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "To:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "Input.Date",
+                            "placeholder": "To",
+                            "id": "DateVal",
+                            "value": "2018-10-20"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": 1,
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Meeting_room%2C_table_and_paper_board.jpg",
+                            "size": "auto"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Submit"
+        }
+    ]
+}

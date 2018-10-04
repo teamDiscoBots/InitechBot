@@ -1,0 +1,40 @@
+{
+	"$schema": "http://adaptivecards.io/schemas/summarycard.json",
+	"type": "AdaptiveCard",
+	"version": "1.0",
+	"body": [
+		
+		{
+			"type": "Container",
+			"items": [
+				{
+					"type": "TextBlock",
+					"text": "Sure, no problem! Here is what you missed:",
+					"wrap": true
+				},
+				{
+					"type": "FactSet",
+					"facts": [
+						{
+							"title": "Emails:",
+							"value": "You have 1999 unread emails."
+						},
+						{
+							"title": "Pending:",
+							"value": "You have 2 Service Now requests in your queue for approval."
+						},
+						{
+							"title": "Meetings:",
+							"value": "You have 2 meeting scheduled for next week."
+						}
+					]
+				}
+			]
+		}
+	],
+	"actions": [
+		{
+
+		}
+	]
+}

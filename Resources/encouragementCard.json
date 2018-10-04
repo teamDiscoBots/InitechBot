@@ -1,0 +1,66 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Looks like someone is having a case of the Mondays!",
+            "weight": "bolder",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Don't worry I am here to help you through it, let's work through it together!",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "What would you like to catch up on first?"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "UserOOOOptions",
+            "style": "compact",
+            "value": "Check Emails",
+            "choices": [
+                {
+                    "title": "Emails",
+                    "value": "Emails",
+                    "isSelected": true
+                },
+                {
+                    "title": "ServiceNow",
+                    "value": "ServiceNow"
+                },
+                {
+                    "title": "Meetings",
+                    "value": "Meetings"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Emails",
+            "data": {
+                "x": "Emails"
+            }
+        },
+        {
+            "type": "Action.Submit",
+            "title": "ServiceNow",
+            "data": {
+                "x": "ServiceNow"
+            }
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Meetings",
+            "data": {
+                "x": "Meetings"
+            }
+        }
+    ]
+}
