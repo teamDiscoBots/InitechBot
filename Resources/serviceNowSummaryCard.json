@@ -96,14 +96,14 @@
       "type": "Action.Submit",
       "title": "Pending Approvals",
       "data": {
-        "x": "ServiceNowApprovals"
+        "text": "ServiceNowApprovals"
       }
     },
     {
       "type": "Action.Submit",
       "title": "My Open Incidents",
       "data": {
-        "x": "ServiceNowIncidents"
+        "text": "ServiceNowIncidents"
       }
     }
   ]
