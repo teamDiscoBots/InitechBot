@@ -84,7 +84,7 @@ namespace Snow
 
             StringBuilder sb = new StringBuilder("Number|Desc|Opened At <br>");
             if (user != null) {
-                List<SnowIncident> incs = qt.findAssignedIncidents(user);
+                List<SnowIncident> incs = qt.findAssignedIncidents(user.sys_id);
                 if (incs==null || incs.Count<1){
                     sb.Append("No Incidents Found");
                 } else {

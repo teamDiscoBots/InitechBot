@@ -14,6 +14,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Snow;
 
 namespace Microsoft.BotBuilderSamples
 {
@@ -31,7 +32,14 @@ namespace Microsoft.BotBuilderSamples
         public const string WhatIMissedIntent = "WhatIMissed";
         public const string WhatNextIntent = "WhatNext";
         public const string MeetingsIntent = "Meetings";
+        public const string MeetingsWithBossIntent = "MeetingsWithBoss";
         public const string ServiceNowIntent = "ServiceNow";
+        public const string ServiceNowPendingApprovalsIntent = "ServiceNowPendingApprovals";
+        public const string ShowDetailsIntent = "ShowDetails";
+        public const string EmailsIntent = "Emails";
+        public const string EmailsFromBossIntent = "EmailsFromBoss";
+       
+
         /// <summary>
         /// Key in the bot config (.bot file) for the LUIS instance.
         /// In the .bot file, multiple instances of LUIS can be configured.
@@ -112,25 +120,78 @@ namespace Microsoft.BotBuilderSamples
 
                             var welcomeCard = CreateInitialGreetingCardAttachment();
                             reply.Attachments.Add(welcomeCard);
-                  
                             await turnContext.SendActivityAsync(reply, cancellationToken);
                             break;
                         case HelpIntent:
                             await turnContext.SendActivityAsync("Let me try to provide some help.");
                             await turnContext.SendActivityAsync("I understand greetings, being asked for help, or being asked to cancel what I am doing.");
                             break;
+                        case WhatIMissedIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            //var serviceNowCard = CreateServiceNowSummaryCardAttachment();
+                            //reply.Attachments.Add(serviceNowCard);
+                            var emailSummaryCard = CreateEMailSummaryCardAttachment();
+                            reply.Attachments.Add(emailSummaryCard);
+                            //var meetingSummaryCard = CreateMeetingSummaryCardAttachment();
+                            //reply.Attachments.Add(meetingSummaryCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
                         case ServiceNowIntent:
                             reply = activity.CreateReply();
                             reply.Attachments = new List<Attachment>();
-                            var serviceNowCard = CreateServiceNowCardAttachment();
+                            var serviceNowCard = CreateServiceNowSummaryCardAttachment();
                             reply.Attachments.Add(serviceNowCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case ServiceNowPendingApprovalsIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            var serviceNowPendingApprovalsCard = CreateServiceNowPendingApprovalsCardAttachment();
+                            reply.Attachments.Add(serviceNowPendingApprovalsCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case EmailsIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            var emailsSummaryCard = CreateEMailSummaryCardAttachment();
+                            reply.Attachments.Add(emailsSummaryCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case EmailsFromBossIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            var emailsFromBossCard = CreateEMailFromBossCardAttachment();
+                            reply.Attachments.Add(emailsFromBossCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case MeetingsIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            var meetingsCard = CreateMeetingSummaryCardAttachment();
+                            reply.Attachments.Add(meetingsCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case MeetingsWithBossIntent:
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            var meetingsWithBossCard = CreateMeetingsWithBossCardAttachment();
+                            reply.Attachments.Add(meetingsWithBossCard);
                             await turnContext.SendActivityAsync(reply, cancellationToken);
                             break;
                         case ThatsALotIntent:
                             reply = activity.CreateReply();
                             reply.Attachments = new List<Attachment>();
-                            var thatsALotCard = CreateThatsLotCardAttachment();
+                            var thatsALotCard = CreateEncouragementCardAttachment();
                             reply.Attachments.Add(thatsALotCard);
+                            await turnContext.SendActivityAsync(reply, cancellationToken);
+                            break;
+                        case ShowDetailsIntent:
+                            await turnContext.SendActivityAsync("Hello!");
+                            // Replay to the activity we received with an activity.
+                            reply = activity.CreateReply();
+                            reply.Attachments = new List<Attachment>();
+                            reply.Attachments.Add(GetShowDetailsCard().ToAttachment());
                             await turnContext.SendActivityAsync(reply, cancellationToken);
                             break;
                         case CancelIntent:
@@ -190,6 +251,22 @@ namespace Microsoft.BotBuilderSamples
             return heroCard;
         }
 
+        private static HeroCard GetShowDetailsCard()
+        {
+            String str = SnowQueryTool.getLumbergIncidents();
+            var heroCard = new HeroCard
+            {
+                Title = "Service Now Details Card",
+                // Subtitle = "Service Now Details",
+                //Text = "these are the details!!!",
+                Text = str
+                //Images = new List<CardImage> { new CardImage("https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg") },
+                //Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Get Started", value: "https://docs.microsoft.com/bot-framework") },
+            };
+
+            return heroCard;
+        }
+
         // Create an attachment message response.
         private Activity CreateResponse(Activity activity, Attachment attachment)
         {
@@ -221,7 +298,40 @@ namespace Microsoft.BotBuilderSamples
         }
 
         // Load attachment from file.
-        private Attachment CreateServiceNowCardAttachment()
+        private Attachment CreateMeetingSummaryCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\meetingSummaryCard.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+
+        // Load attachment from file.
+        private Attachment CreateMeetingsWithBossCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\meetingWithBossCard.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+        
+        // Load attachment from file.
+        private Attachment CreateEMailSummaryCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\emailSummaryCard.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+
+        // Load attachment from file.
+        private Attachment CreateServiceNowSummaryCardAttachment()
         {
             var adaptiveCard = File.ReadAllText(@".\Resources\serviceNowSummaryCard.json");
             return new Attachment()
@@ -232,7 +342,30 @@ namespace Microsoft.BotBuilderSamples
         }
 
         // Load attachment from file.
-        private Attachment CreateThatsLotCardAttachment()
+        private Attachment CreateServiceNowPendingApprovalsCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\snowPendingApprovalsCard.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+
+
+        // Load attachment from file.
+        private Attachment CreateEMailFromBossCardAttachment()
+        {
+            var adaptiveCard = File.ReadAllText(@".\Resources\emailsFromBossCard.json");
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+
+        // Load attachment from file.
+        private Attachment CreateEncouragementCardAttachment()
         {
             var adaptiveCard = File.ReadAllText(@".\Resources\encouragementCard.json");
             return new Attachment()

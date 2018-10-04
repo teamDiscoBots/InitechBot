@@ -1,147 +1,150 @@
 {
-    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-    "version": "1.0",
-    "type": "AdaptiveCard",
-    "speak": "<s>Here is a list of the last 4 emails from your boss.</s>",
-    "body": [
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0",
+  "type": "AdaptiveCard",
+  "speak": "<s>Here is a list of the last 4 emails from your boss.</s>",
+  "body": [
+
+    {
+      "type": "ColumnSet",
+      "separator": true,
+      "columns": [
         {
-            "type": "ColumnSet",
-            "separator": true,
-            "columns": [
-                {
-                    "type": "Column",
-                    "width": "auto",
-                    "items": [
-                        {
-                            "type": "Image",
-                            "url": "http://p5cdn4static.sharpschool.com/UserFiles/Servers/Server_3152864/Image/Logos/Calendar_Icon.png",
-                            "size": "small",
-                            "spacing": "none"
-                        }
-                    ]
-                },
-                {
-                    "type": "Column",
-                    "width": 1,
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Upcoming TPS Meetings",
-                            "size": "extraLarge",
-                            "weight": "bolder",
-                            "spacing": "none"
-                        }
-                    ]
-                }
-            ]
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "Image",
+              "url": "https://media2.picsearch.com/is?DitcP7Rs89uEZBaMEJ-KjkHvfPuIZ7zRHwMqOl4Bb2w&height=320",
+              "size": "small",
+              "spacing": "none"
+            }
+          ]
         },
         {
-            "type": "ColumnSet",
-            "separator": true,
-            "columns": [
-                {
-                    "type": "Column",
-                    "width": 2,
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Date",
-                            "weight": "bolder",
-                            "isSubtle": true
-                        },
-                        {
-                            "type": "TextBlock",
-                            "color": "accent",
-                            "text": "10/04/18",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "color": "accent",
-                            "text": "10/04/18",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "color": "accent",
-                            "text": "10/05/18",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "color": "accent",
-                            "text": "10/05/18",
-                            "spacing": "none"
-                        }
-                    ]
-                },
-                {
-                    "type": "Column",
-                    "width": "3",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Time",
-                            "weight": "bolder"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "color": "accent",
-                            "text": "9:00am-10:00am",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "text": "1:00pm-2:00pm",
-                            "color": "accent",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "text": "2:30pm-4:00pm",
-                            "color": "accent",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "text": "4:00pm-5:00pm",
-                            "color": "accent",
-                            "spacing": "none"
-                        }
-                    ]
-                },
-                {
-                    "type": "Column",
-                    "width": 3,
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Subject",
-                            "weight": "bolder"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "text": "TPS Status report",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "text": "TPS brainstorming session",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "text": "TPS - Future Weekend Availability",
-                            "spacing": "none"
-                        },
-                        {
-                            "type": "TextBlock",
-                            "text": "TPS - Review with Legal",
-                            "spacing": "none"
-                        }
-                    ]
-                }
-            ]
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Emails from Bill Lumberg",
+              "size": "extraLarge",
+              "weight": "bolder",
+              "spacing": "none"
+            }
+          ]
         }
-    ]
+
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "separator": true,
+      "columns": [
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Date",
+              "weight": "bolder",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "color": "accent",
+              "text": "09/28/18",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "color": "accent",
+              "text": "09/27/18",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "color": "accent",
+              "text": "09/26/18",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "color": "accent",
+              "text": "09/25/18",
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "1",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Subject",
+              "weight": "bolder"
+            },
+            {
+              "type": "TextBlock",
+              "color": "accent",
+              "text": "New Format for TPS Reports",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Project Status",
+              "color": "accent",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Working this Saturday",
+              "color": "accent",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "text": "TPS Reports Overdue",
+              "color": "accent",
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "First Line",
+              "weight": "bolder"
+            },
+            {
+              "type": "TextBlock",
+              "text": "The TPS reports have a new cover page.",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Your project status report is overdue.",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "text": "All team members are required to report this Saturday.",
+              "spacing": "none"
+            },
+            {
+              "type": "TextBlock",
+              "text": "The TPS reports are overdue. Please complete and send in.",
+              "spacing": "none"
+            }
+          ]
+        }
+      ]
+
+    }
+  ]
 }
